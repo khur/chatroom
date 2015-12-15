@@ -1,0 +1,11 @@
+{
+  "name": "chtr",
+  "version": "1.0.0",
+  "description": "Socket Chatroom",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "khur",
+  "license": "ISC"
+}
