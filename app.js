@@ -12,15 +12,19 @@ app.get('/', function(request, response){
 	response.sendFile(__dirname + "index.html");
 });
 
-// app.post('/', function(request, response){
-// 	console.log(request.body);
-// });
+
 
 io.on('connection', function(socket){
 	console.log('a user has connected');
+
+	socket.on('chat message', function(msg){
+		io.emit('chat message', msg);
+	})
+
 	socket.on('disconnect', function(){
 		console.log("user disconnected");
 	});
+
 });
 
 

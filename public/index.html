@@ -9,19 +9,21 @@
 <body>
     <h1>CHTR</h1>
     <div id="container">
-
         <div id="users">
-        	<h2>Users</h2>
+            <header>
+                <h2>Users</h2>
+            </header>
         </div>
         <div id="chatbox">
-        	<h2>Messages</h2>
-        	<ul id="chatlog">
-        		
-        	</ul>
+            <header>
+                <h2>Messages</h2>
+            </header>
+            <ul id="chatlog">
+            </ul>
         </div>
         <div id="input">
             <form>
-                <input type="text" placeholder="Text here..." id="chatText">
+                <input type="text" placeholder="Chat here..." id="inputText">
                 <input type="submit" value="Enter">
             </form>
         </div>
@@ -29,8 +31,6 @@
     <script type="text/javascript" src="js/jquery.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="js/client.js"></script>
-    
-    
 </body>
 
 </html>
