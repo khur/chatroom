@@ -1,9 +1,4 @@
-$('document').ready(function(){
-	
-});
+var socket = io();
 
-var text = document.getElementById('chatText');
 
-$('form').submit(function(){
-	$('#chatlog').append("<li>" + text.value + "</li>")
-});
+
