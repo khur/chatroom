@@ -13,6 +13,7 @@ redisClient.on("error", function(err) {
     console.log("Error " + err);
 });
 
+// Middleware 
 
 app.use(bodyparser.json());
 app.use(express.static('public'));
@@ -32,7 +33,7 @@ var storeMessage = function(name, data) {
 	    });
 };
 
-
+// Socket.io
 
 io.on('connection', function(client) {
 
@@ -89,9 +90,6 @@ io.on('connection', function(client) {
     });
 
 });
-
-
-
 
 http.listen(3000, function() {
     console.log("listening on port 3000...");
