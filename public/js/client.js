@@ -9,15 +9,21 @@ server.on('connect', function(data) {
 
 
 $('form').submit(function() {
-	message = {
-		user: user,
-		text: $('#inputText').val()
-	}
-    server.emit('chat message', message.user + ": " + message.text);
+	message = $('#inputText').val();
+    server.emit('chat message', message );
     $('#inputText').val('');
     return false;
 });
 
 server.on('chat message', function(msg) {
     $('#chatlog').append($('<li>').text(msg));
+});
+
+server.on("add chatter", function(name){
+	chatter = $('<li>' + name + '</li>').data('name', name);
+	$('#userList').append(chatter);
+});
+
+server.on('remove chatter', function(name){
+	$("#userList li[data-name=" + name + "]").remove();
 });

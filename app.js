@@ -39,14 +39,19 @@ io.on('connection', function(client) {
     client.on('join', function(user) {
 
     	client.nickname = user;
+    	client.broadcast.emit("add chatter", user);
 
-    	redisClient.sadd("chatters", client.nickname, function(reply){
-    		console.log(reply);
+    	redisClient.smembers("chatters", function(err, names){
+    		names.forEach(function(name){
+    			client.emit("add chatter", name);
+    		});
     	});
+
+    	redisClient.sadd("chatters", client.nickname);
 
         redisClient.lrange("messages", 0, -1, function(err, messages) {
             messages.reverse();
-            console.log(messages);
+            console.log("messages: ", messages);
             messages.forEach(function(message) {
                 message = JSON.parse(message);
 
@@ -60,16 +65,27 @@ io.on('connection', function(client) {
 
 
     client.on('chat message', function(msg) {
-    	
-        console.log(msg);
-        io.emit('chat message', msg);
+    	var nickname = client.nickname;
+
+    	storeMessage(nickname, msg)
+
+        console.log(nickname + ": " + msg);
+        client.broadcast.emit('chat message', nickname + ': ' + msg);
+        client.emit('chat message', nickname + ': ' + msg);
     });
 
 
 
-    client.on('disconnect', function() {
-        console.log(client.nickname + " disconnected");
-        // redisClient.srem("chatters", client.nickname);
+    client.on('disconnect', function(name) {
+    	
+
+    		client.broadcast.emit("remove chatter", client.nickname);
+
+    		redisClient.srem('chatters', client.nickname);
+
+    		console.log( client.nickname, " disconnected");
+    	
+
     });
 
 });
