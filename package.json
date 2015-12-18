@@ -9,6 +9,8 @@
   "author": "khur",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.14.1",
+    "redis": "^2.4.2",
     "socket.io": "^1.3.7"
   }
 }

@@ -1,17 +1,29 @@
-var socket = io();
-
-var user = prompt('What is your name?');
+var server = io.connect('http://localhost:3000');
 
 
 
-$('form').submit(function(){
+server.on('connect', function(data) {
+    user = prompt('What is your name?');
+    server.emit('join', user);
+});
 
-    socket.emit('chat message', user + ": " + $('#inputText').val());
+
+$('form').submit(function() {
+	message = $('#inputText').val();
+    server.emit('chat message', message );
     $('#inputText').val('');
     return false;
+});
 
- });
-
-socket.on('chat message', function(msg){
+server.on('chat message', function(msg) {
     $('#chatlog').append($('<li>').text(msg));
+});
+
+server.on("add chatter", function(name){
+	chatter = $('<li>' + name + '</li>').data('name', name);
+	$('#userList').append(chatter);
+});
+
+server.on('remove chatter', function(name){
+	$("#userList li[data-name=" + name + "]").remove();
 });

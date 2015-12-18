@@ -7,12 +7,13 @@
 </head>
 
 <body>
-    <h1>CHTR</h1>
+    <h1>CHATROOM TIME</h1>
     <div id="container">
-        <div id="users">
+        <div id="userbox">
             <header>
                 <h2>Users</h2>
             </header>
+            <ul id="userList"></ul>
         </div>
         <div id="chatbox">
             <header>
@@ -23,8 +24,10 @@
         </div>
         <div id="input">
             <form>
-                <input type="text" placeholder="Chat here..." id="inputText">
-                <input type="submit" value="Enter">
+            	<div>
+            		<input type="text" placeholder="Chat here..." id="inputText">
+            		<input type="submit" value="Enter">	
+            	</div>
             </form>
         </div>
     </div>
