@@ -56,7 +56,7 @@ io.on('connection', function(client) {
                 message = JSON.parse(message);
 
                 client.emit('chat message', message.name + ": " + message.data);
-            })
+            });
         });
 
         
