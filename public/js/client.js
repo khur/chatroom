@@ -20,10 +20,10 @@ server.on('chat message', function(msg) {
 });
 
 server.on("add chatter", function(name){
-	chatter = $('<li>' + name + '</li>').data('name', name);
+	chatter = $('<li data-name="'+ name + '">' + name + '</li>');//.data('name', name);
 	$('#userList').append(chatter);
 });
 
 server.on('remove chatter', function(name){
-	$("#userList li[data-name=" + name + "]").remove();
+	$('li[data-name="' + name + '"').remove();
 });

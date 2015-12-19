@@ -9,5 +9,5 @@
 * npm install 
 
 # **What is it?** 
-Classic WebSocket Chatroom with socket.io and a node.js server. Uses a RedisDB.
+Classic WebSocket Chatroom with socket.io and a node.js server. Persists to a RedisDB.
 
