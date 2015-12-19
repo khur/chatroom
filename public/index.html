@@ -15,21 +15,24 @@
             </header>
             <ul id="userList"></ul>
         </div>
-        <div id="chatbox">
-            <header>
-                <h2>Messages</h2>
-            </header>
-            <ul id="chatlog">
-            </ul>
+        <div id="chatboxContainer">
+            <div id="chatbox">
+                <header>
+                    <h2>Messages</h2>
+                </header>
+                <ul id="chatlog">
+                </ul>
+            </div>
+            <div id="input">
+                <form>
+                    <div>
+                        <input type="text" placeholder="Chat here..." id="inputText">
+                        <input type="submit" value="Enter"> 
+                    </div>
+                </form>
+            </div>
         </div>
-        <div id="input">
-            <form>
-            	<div>
-            		<input type="text" placeholder="Chat here..." id="inputText">
-            		<input type="submit" value="Enter">	
-            	</div>
-            </form>
-        </div>
+        
     </div>
     <script type="text/javascript" src="js/jquery.js"></script>
     <script src="/socket.io/socket.io.js"></script>

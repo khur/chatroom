@@ -7,14 +7,17 @@
 }
 
 header{
+	padding: 5px;
 	text-align: center; 
 	width: 100%;
 	background: grey; 
 	color: white;
+	border-radius: 5px;
 }
 
 h1{
-	text-align: center;
+	text-align:center;
+	font-size: 50px;
 	color: rgb(32, 150, 150);
 }
 
@@ -28,16 +31,57 @@ h1{
 
 #userbox{
 	flex: 1;
-	border: 1px solid black;
+	border-radius: 5px;
+	margin: 0px 10px 2px;
+	height: 500px;
 }
 
-#chatbox{
+#chatboxContainer{
 	flex: 3;
-	border: 1px solid black;
+	border-radius: 5px;
+	margin: 0px 10px 2px;
+	height: 500px;
 }
 
-#input{
-	flex: 1;
-	width: 100%;
+
+#userbox > ul >  li {
+	margin: 5px;
+	padding: 8px;
+	background: rgb(230,223,230);
+	color: rgb(32, 150, 150);
+	border-radius: 5px;
+
+}
+
+#chatbox {
+	display: block;
 	
+	height: 465px;
+}
+
+#chatbox > ul >li {
+	margin: 3px;
+	padding: 8px;
+	background: rgb(230,223,230);
+	border-radius: 5px;
+	color: rgb(32, 150, 150);
+	width: 75%;
+}
+
+input[type="text"]{
+	font-size: 18px;
+	width: 78%;
+	color: grey;
+	border: none;
+	border-bottom: 1px solid gray;
+	outline: none;
+}
+
+/*#input{
+	border: 1px solid yellow;
+}*/
+
+input[type="submit"]{
+	font-size: 18px;
+	width: 20%;
 }

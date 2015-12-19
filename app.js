@@ -29,7 +29,7 @@ var storeMessage = function(name, data) {
 
   redisClient.lpush("messages", message,
     function(err, response) {
-      redisClient.ltrim("messages", 0, 14);
+      redisClient.ltrim("messages", 0, 9);
     });
 };
 
@@ -53,7 +53,7 @@ io.on('connection', function(client) {
 
     redisClient.lrange("messages", 0, -1, function(err, messages) {
       messages.reverse();
-      // console.log("messages: ", messages);
+      console.log("messages: ", messages);
       messages.forEach(function(message) {
         message = JSON.parse(message);
         client.emit('chat message', message.name + ": " + message.data);
